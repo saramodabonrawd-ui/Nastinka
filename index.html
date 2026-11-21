@@ -69,6 +69,8 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline
   </div>
   <section class="scroll" id="card" aria-live="polite"></section>
   <div class="seen" id="seen"></div>
+  <a class="priv" id="priv" href="privacy.html"></a>
+  
 </main>
 <script>
 /* القائلون: مفتاح -> [اسم ع, اسم en, نبذة ع, bio en] */
@@ -338,8 +340,10 @@ var Q=[
 ["معظم الناس يعيشون حياة هادئة من اليأس.","The mass of people lead lives of quiet desperation.","tho","ملاحظة ثورو عن الروتين الذي يبعدنا عن ما نريد فعلاً. (بتصرّف)","Thoreau’s observation about routine pulling us away from what we truly want. (paraphrased)"]
 ];
 var T={
-ar:{dir:"rtl",btn:"EN",title:"رقم وحكمة",sub:"اختر رقمك، وانظر أي فكرة تنتظرك خلفه",range:"اختر رقماً من 1 إلى ",go:"اكشف الحكمة",rand:"رقم عشوائي",hint:"كل رقم يخفي اقتباساً فلسفياً. جرّب رقمك الآن.",num:"الرقم ",meaning:"ما المقصود؟",about:"عن القائل",seenA:"اكتشفت ",seenB:" من ",seenC:" حكمة",q1:"«",q2:"»"},
-en:{dir:"ltr",btn:"ع",title:"Number and Wisdom",sub:"Pick a number and see which idea waits behind it",range:"Pick a number from 1 to ",go:"Reveal the wisdom",rand:"Random number",hint:"Every number hides a philosophical quote. Try yours now.",num:"Number ",meaning:"What it means",about:"About the thinker",seenA:"You found ",seenB:" of ",seenC:" quotes",q1:"“",q2:"”"}
+ar:{dir:"rtl",btn:"EN",title:"رقم وحكمة",sub:"اختر رقمك، وانظر أي فكرة تنتظرك خلفه",range:"اختر رقماً من 1 إلى ",go:"اكشف الحكمة",rand:"رقم عشوائي",hint:"كل رقم يخفي اقتباساً فلسفياً. جرّب رقمك الآن.",num:"الرقم ",meaning:"ما المقصود؟",about:"عن القائل",seenA:"اكتشفت ",seenB:" من ",seenC:" حكمة",priv:"سياسة الخصوصية",
+    q1:"«",q2:"»"},
+en:{dir:"ltr",btn:"ع",title:"Number and Wisdom",sub:"Pick a number and see which idea waits behind it",range:"Pick a number from 1 to ",go:"Reveal the wisdom",rand:"Random number",hint:"Every number hides a philosophical quote. Try yours now.",num:"Number ",priv:"Privacy Policy",
+,meaning:"What it means",about:"About the thinker",seenA:"You found ",seenB:" of ",seenC:" quotes",q1:"“",q2:"”"}
 };
 var CATS=[["all","كل الأقسام","All categories"],["arab","فلسفة عربية وإسلامية","Arab and Islamic"],["anc","الفلسفة القديمة","Ancient"],["sto","الرواقية","Stoicism"],["exi","الوجودية","Existentialism"],["eas","الفلسفة الشرقية","Eastern"],["mod","الفلسفة الحديثة","Modern"]];
 var CAT={};
@@ -362,6 +366,7 @@ function paint(){
   var s=T[L],k=L==="ar"?0:1;
   document.documentElement.lang=L;document.documentElement.dir=s.dir;
   document.title=T.ar.title+" | "+T.en.title;
+  $("priv").textContent=s.priv;
   $("lang").textContent=s.btn;$("t-title").textContent=s.title;$("t-sub").textContent=s.sub;
   $("range").textContent=s.range+N;$("go").textContent=s.go;$("rand").textContent=s.rand;
   buildCats();var inCat=0,got=0,kk;for(kk=0;kk<N;kk++){if(ok(kk)){inCat++;if(seen[kk])got++;}}$("seen").textContent=s.seenA+got+s.seenB+inCat+s.seenC;
@@ -378,9 +383,15 @@ function paint(){
 }
 function reveal(){
   cur=clamp(numEl.value);numEl.value=cur;
-  var pool=[],k2;for(k2=0;k2<N;k2++){if(!seen[k2]&&k2!==curQ&&ok(k2))pool.push(k2);}if(!pool.length){for(k2=0;k2<N;k2++){if(k2!==curQ&&ok(k2))pool.push(k2);}}if(!pool.length){pool.push(curQ===null?0:curQ);}curQ=pool[Math.floor(Math.random()*pool.length)];seen[curQ]=1;try{localStorage.setItem("philo-seen2",JSON.stringify(seen));}catch(e){}
+  var filtered=[];
+  for(var idx=0;idx<N;idx++){if(ok(order[idx]))filtered.push(order[idx]);}
+  if(!filtered.length){filtered.push(0);}
+  curQ=filtered[(cur-1)%filtered.length];
+  seen[curQ]=1;
+  try{localStorage.setItem("philo-seen2",JSON.stringify(seen));}catch(e){}
   paint();card.className="scroll";void card.offsetWidth;card.className="scroll show";
 }
+  
 $("go").addEventListener("click",reveal);
 $("rand").addEventListener("click",function(){numEl.value=1+Math.floor(Math.random()*N);reveal();});
 $("plus").addEventListener("click",function(){numEl.value=clamp(clamp(numEl.value)+1);});
