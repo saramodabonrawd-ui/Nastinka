@@ -2,13 +2,171 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>سياسة الخصوصية - رقم وحكمة</title>
-  <style>body{font-family:sans-serif;max-width:700px;margin:40px auto;padding:0 16px;line-height:1.8}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>سياسة الخصوصية | رقم وحكمة</title>
+  <meta name="theme-color" content="#6A2C70">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #DCE5E2;
+      --ink: #1B2B34;
+      --muted: #506068;
+      --paper: #F7FAF9;
+      --accent: #6A2C70;
+      --border: #C5D1CD;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121A1F;
+        --ink: #E8EFEE;
+        --muted: #9DB0B3;
+        --paper: #1D2A31;
+        --accent: #C58BCB;
+        --border: #2E3F48;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Cairo", system-ui, sans-serif;
+      line-height: 1.8;
+      padding: 24px 16px 48px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 22px;
+    }
+    h1 {
+      font-family: "Amiri", serif;
+      font-size: 2rem;
+      margin: 0 0 8px;
+      color: var(--accent);
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 1.15rem;
+      margin: 22px 0 8px;
+      color: var(--accent);
+    }
+    p, li {
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    ul {
+      padding-inline-start: 20px;
+      margin: 0 0 14px;
+    }
+    .en-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 2px dashed var(--border);
+      direction: ltr;
+      text-align: left;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--accent);
+    }
+  </style>
 </head>
 <body>
-  <h1>سياسة الخصوصية لتطبيق رقم وحكمة</h1>
-  <p>تطبيق «رقم وحكمة» لا يجمع أو يخزّن أو يشارك أي بيانات شخصية عن المستخدمين على خوادم خارجية. يتم حفظ تقدمك أو تفضيلاتك محلياً على جهازك فقط.</p>
-  <p>للاستفسار: ضع بريدك الإلكتروني هنا</p>
+  <main class="container">
+    <h1>سياسة الخصوصية — رقم وحكمة</h1>
+    <div class="meta">آخر تحديث: نوفمبر 2026 | التطبيق: رقم وحكمة (Number and Wisdom)</div>
+
+    <p>
+      يحترم تطبيق <strong>«رقم وحكمة»</strong> خصوصية المستخدمين. توضح هذه السياسة كيفية تعامل التطبيق مع المعلومات عند استخدامه.
+    </p>
+
+    <h2>1. البيانات التي نجمعها</h2>
+    <p>
+      لا يطلب التطبيق إنشاء حساب ولا يجمع أي معلومات شخصية مثل الاسم أو البريد الإلكتروني أو رقم الهاتف أو الموقع الجغرافي الدقيق.
+    </p>
+
+    <h2>2. التخزين المحلي على جهازك</h2>
+    <p>
+      يستخدم التطبيق التخزين المحلي في المتصفح (<code>localStorage</code>) لحفظ تفضيلاتك فقط، مثل:
+    </p>
+    <ul>
+      <li>اللغة المختارة (العربية أو الإنجليزية).</li>
+      <li>سجل الاقتباسات التي اطّلعت عليها سابقاً لتسهيل تجربتك.</li>
+    </ul>
+    <p>
+      تبقى هذه البيانات على جهازك ويمكنك مسحها في أي وقت عبر مسح بيانات المتصفح أو التطبيق.
+    </p>
+
+    <h2>3. ملفات تعريف الارتباط والخدمات الخارجية</h2>
+    <p>
+      قد يعتمد التطبيق على خدمات خارجية أساسية مثل خطوط الويب (Google Fonts) أو استضافة صفحات الويب (GitHub Pages) لتقديم المحتوى والواجهة. لا يقوم مطور التطبيق ببيع أو تأجير أي بيانات للمستخدمين.
+    </p>
+
+    <h2>4. خصوصية الأطفال</h2>
+    <p>
+      محتوى التطبيق عبارة عن اقتباسات وحكم معرفية وفلسفية عامة ولا يجمع بيانات شخصية من الأطفال أو غيرهم.
+    </p>
+
+    <h2>5. التواصل والاستفسارات</h2>
+    <p>
+      إذا كان لديك أي استفسار حول سياسة الخصوصية هذه، يمكنك التواصل عبر صفحة المشروع على GitHub الخاصة بالمطور.
+    </p>
+
+    <section class="en-section">
+      <h1>Privacy Policy — Number and Wisdom</h1>
+      <div class="meta">Last updated: November 2026 | App: Number and Wisdom</div>
+
+      <p>
+        <strong>Number and Wisdom</strong> respects your privacy. This policy explains how information is handled when you use the app.
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      <p>
+        The app does not require account registration and does not collect personal information such as your name, email address, phone number, or precise location.
+      </p>
+
+      <h2>2. Local Storage on Your Device</h2>
+      <p>
+        The app uses local browser storage (<code>localStorage</code>) solely to remember your experience preferences, such as:
+      </p>
+      <ul>
+        <li>Your selected language (Arabic or English).</li>
+        <li>Your progress of viewed quotes.</li>
+      </ul>
+      <p>
+        This data stays on your device and can be cleared anytime by clearing your browser or app data.
+      </p>
+
+      <h2>3. External Services</h2>
+      <p>
+        Core web delivery and typography may rely on standard infrastructure such as GitHub Pages and Google Fonts. The developer does not sell or rent user data.
+      </p>
+
+      <h2>4. Children’s Privacy</h2>
+      <p>
+        The app provides general philosophical quotes and wisdom and does not knowingly collect personal data from children.
+      </p>
+
+      <h2>5. Contact</h2>
+      <p>
+        If you have questions about this privacy policy, you can reach out via the developer’s GitHub project page.
+      </p>
+    </section>
+
+    <a class="back-link" href="./">← العودة إلى التطبيق / Back to App</a>
+  </main>
 </body>
 </html>
